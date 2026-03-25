@@ -46,11 +46,11 @@ end
 -- ── Re-validasi ke server ──────────────────────────
 local VALIDATE_URL = "https://validationlua.vincitore.workers.dev/validate"
 
-local httpGet       = function(url) return HttpService:GetAsync(url) end
+local httpPost       = function(url) return HttpService:PostAsync(url) end
 local httpUrlEncode = function(s) return HttpService:UrlEncode(s) end
 local httpDecode    = function(s) return HttpService:JSONDecode(s) end
 
-local reqOk, response = _pcall(httpGet,
+local reqOk, response = _pcall(httpPost,
     VALIDATE_URL
     .. "?script_key=" .. httpUrlEncode(script_key)
     .. "&token="      .. httpUrlEncode(token)
